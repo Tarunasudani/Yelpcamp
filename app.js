@@ -30,7 +30,7 @@ app.use(function(req,res,next){
   res.locals.currentUser=req.user;
   next();
 });
-mongoose.connect("mongodb+srv://tarun:*tarun2207*@yelpcamp-u2geq.mongodb.net/test?retryWrites=true");
+mongoose.connect(process.env.MONGODB_URI);
 //mongodb+srv://tarun:*tarun2207*@yelpcamp-u2geq.mongodb.net/test?retryWrites=true
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
@@ -39,6 +39,7 @@ app.use(express.static(__dirname+"/public"));
 app.use(indexRoutes);
 app.use("/campgrounds/:id/comments",commentRoutes);
 app.use("/campgrounds",campgroundRoutes);
-app.listen(3000,function(){
+const port=process.env.PORT;
+app.listen(port,function(){
     console.log("the server has started ");
 });
