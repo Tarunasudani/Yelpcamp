@@ -30,7 +30,8 @@ app.use(function(req,res,next){
   res.locals.currentUser=req.user;
   next();
 });
-mongoose.connect("mongodb://localhost/yelp_camp");
+mongoose.connect("mongodb+srv://tarun:*tarun2207*@yelpcamp-u2geq.mongodb.net/test?retryWrites=true");
+//mongodb+srv://tarun:*tarun2207*@yelpcamp-u2geq.mongodb.net/test?retryWrites=true
 app.set("view engine","ejs");
 app.use(bodyparser.urlencoded({extended:true}));
 app.use(express.static(__dirname+"/public"));
