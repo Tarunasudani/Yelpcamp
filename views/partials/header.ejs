@@ -1,0 +1,25 @@
+ <html>
+    <head>
+        <title>yelpcamp</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/main.css">
+    </head>
+    <body>
+      <nav class="navbar navbar-dark" style="background-color: #2b2f3f;">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <a class= "navbar-brand" href="/">Yelpcamp</a>
+            </div>
+            <div>
+              <ul class="nav navbar-nav navbar-right">
+                <%if(!currentUser){ %>
+                  <li><a href="/login">Login</a></li>
+                  <li><a href="/register">signup</a></li>
+                  <%}else{%>
+                    <li><a href=#"">SIGNED IN AS <%=currentUser.username %></a></li>
+                  <li><a href="/logout">logout</a></li>
+                  <%}%>
+              </ul>
+            </div>
+          </div>
+      </nav>
